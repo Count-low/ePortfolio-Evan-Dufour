@@ -503,7 +503,8 @@
 
         /* ===== PROJETS ===== */
         .proj-overview {
-            background: #1d1d1f;
+            background: #f2f2f7;
+            border: 1px solid rgba(0,0,0,0.07);
             border-radius: 20px;
             overflow: hidden;
             margin-bottom: 24px;
@@ -514,30 +515,30 @@
             gap: 20px;
             padding: 20px 28px;
             cursor: pointer;
-            border-bottom: 1px solid rgba(255,255,255,0.07);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
             transition: background 0.25s;
             user-select: none;
         }
         .proj-overview-item:last-child { border-bottom: none; }
-        .proj-overview-item:hover { background: rgba(255,255,255,0.05); }
+        .proj-overview-item:hover { background: rgba(0,113,227,0.05); }
         .proj-overview-num {
             font-family: 'Poppins', sans-serif;
             font-size: 1.6rem;
             font-weight: 800;
-            color: rgba(255,255,255,0.15);
+            color: rgba(0,0,0,0.12);
             width: 42px;
             flex-shrink: 0;
             line-height: 1;
         }
         .proj-overview-info { flex: 1; }
-        .proj-overview-info strong { display: block; color: white; font-size: 0.96rem; margin-bottom: 3px; }
-        .proj-overview-info span { color: rgba(255,255,255,0.4); font-size: 0.8rem; }
+        .proj-overview-info strong { display: block; color: #1d1d1f; font-size: 0.96rem; margin-bottom: 3px; }
+        .proj-overview-info span { color: #86868b; font-size: 0.8rem; }
         .proj-overview-arrow {
-            color: rgba(255,255,255,0.35);
+            color: #86868b;
             font-size: 1rem;
             transition: transform 0.3s, color 0.2s;
         }
-        .proj-overview-arrow.open { transform: rotate(180deg); color: #60a5fa; }
+        .proj-overview-arrow.open { transform: rotate(180deg); color: #0071e3; }
 
         .proj-detail {
             display: none;
@@ -556,9 +557,9 @@
             padding: 36px 36px 30px;
             color: white;
         }
-        .proj-hero-blue   { background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 60%, #38bdf8 100%); }
-        .proj-hero-green  { background: linear-gradient(135deg, #064e3b 0%, #059669 60%, #34d399 100%); }
-        .proj-hero-orange { background: linear-gradient(135deg, #7c2d12 0%, #dc2626 50%, #f97316 100%); }
+        .proj-hero-blue   { background: #f0f4ff; border: 1px solid #c7d7fe; color: #1e3a8a !important; }
+        .proj-hero-green  { background: #f0fdf4; border: 1px solid #bbf7d0; color: #064e3b !important; }
+        .proj-hero-orange { background: #fff7ed; border: 1px solid #fed7aa; color: #7c2d12 !important; }
 
         .proj-hero-label {
             font-size: 0.72rem;
@@ -584,6 +585,28 @@
             font-size: 0.76rem;
             font-weight: 600;
             backdrop-filter: blur(4px);
+        }
+        /* Light hero overrides for enterprise projects */
+        .proj-hero-blue .proj-hero-label,
+        .proj-hero-green .proj-hero-label,
+        .proj-hero-orange .proj-hero-label { color: inherit; opacity: 0.6; }
+        .proj-hero-blue .proj-hero-title,
+        .proj-hero-green .proj-hero-title,
+        .proj-hero-orange .proj-hero-title { color: inherit; }
+        .proj-hero-blue .proj-hero-tags span {
+            background: rgba(37,99,235,0.1);
+            border: 1px solid rgba(37,99,235,0.25);
+            color: #1e3a8a;
+        }
+        .proj-hero-green .proj-hero-tags span {
+            background: rgba(5,150,105,0.1);
+            border: 1px solid rgba(5,150,105,0.25);
+            color: #064e3b;
+        }
+        .proj-hero-orange .proj-hero-tags span {
+            background: rgba(234,88,12,0.1);
+            border: 1px solid rgba(234,88,12,0.25);
+            color: #7c2d12;
         }
 
         .proj-body {
@@ -701,25 +724,27 @@
 
         /* Budget (projet II) */
         .proj-budget {
-            background: #1d1d1f;
+            background: #f2f2f7;
+            border: 1px solid rgba(0,0,0,0.07);
             border-radius: 16px;
             padding: 22px 24px;
             margin-bottom: 24px;
-            color: white;
+            color: #1d1d1f;
         }
-        .proj-budget-title { font-size: 0.82rem; font-weight: 700; color: rgba(255,255,255,0.55); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.06em; }
+        .proj-budget-title { font-size: 0.82rem; font-weight: 700; color: #86868b; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.06em; }
         .proj-budget-grid { display: flex; gap: 12px; flex-wrap: wrap; }
         .proj-budget-item, .proj-budget-total {
-            background: rgba(255,255,255,0.07);
+            background: white;
+            border: 1px solid rgba(0,0,0,0.07);
             border-radius: 12px;
             padding: 14px 18px;
             flex: 1;
             min-width: 100px;
         }
-        .proj-budget-total { background: rgba(255,255,255,0.15); }
-        .proj-budget-item span, .proj-budget-total span { display: block; font-size: 1.1rem; font-weight: 800; color: white; margin-bottom: 4px; }
-        .proj-budget-item p, .proj-budget-total p { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin: 0; }
-        .proj-budget-total span { color: #60a5fa; }
+        .proj-budget-total { background: #e8f1fc; border-color: #bfdbfe; }
+        .proj-budget-item span, .proj-budget-total span { display: block; font-size: 1.1rem; font-weight: 800; color: #1d1d1f; margin-bottom: 4px; }
+        .proj-budget-item p, .proj-budget-total p { font-size: 0.75rem; color: #86868b; margin: 0; }
+        .proj-budget-total span { color: #0071e3; }
 
         /* PDF placeholder */
         .proj-pdf-placeholder {
@@ -827,6 +852,45 @@
         }
         .contact-note i { color: #22c55e; }
 
+        /* ===== ACADÉMIQUE STYLES ===== */
+        .proj-hero-purple { background: linear-gradient(135deg, #3b0764 0%, #7c3aed 60%, #a78bfa 100%); }
+        .proj-hero-teal   { background: linear-gradient(135deg, #042f2e 0%, #0d9488 60%, #5eead4 100%); }
+
+        .proj-section-sep {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 32px 0 20px;
+        }
+        .proj-section-sep-line {
+            flex: 1;
+            height: 1px;
+            background: #e5eaf2;
+        }
+        .proj-section-sep-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #86868b;
+            white-space: nowrap;
+            padding: 0 4px;
+        }
+
+        .proj-overview-acad { background: #f7f9fc; }
+        .proj-overview-num-acad {
+            font-size: 1rem !important;
+            color: #86868b !important;
+            background: #e5eaf2;
+            border-radius: 8px;
+            width: 36px !important;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Inter", sans-serif !important;
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 640px) {
             header { padding: 50px 16px 100px; }
@@ -836,6 +900,260 @@
             .card, .travel-body, .travel-header { padding: 22px 20px; }
             .skill-level-label { width: 150px; }
             .skill-note { padding-left: 0; }
+        }
+
+        /* ===== ANIMATIONS VISIBLES ===== */
+
+        /* Entrée du header */
+        .header-inner img {
+            animation: floatIn 1s cubic-bezier(.22,1,.36,1) both;
+        }
+        .header-text {
+            animation: slideRight 0.9s cubic-bezier(.22,1,.36,1) 0.15s both;
+        }
+        @keyframes floatIn {
+            from { opacity:0; transform: translateY(30px) scale(0.95); }
+            to   { opacity:1; transform: translateY(0) scale(1); }
+        }
+        @keyframes slideRight {
+            from { opacity:0; transform: translateX(-28px); }
+            to   { opacity:1; transform: translateX(0); }
+        }
+
+        /* Scroll progress glow */
+        #progress-bar {
+            box-shadow: 0 0 8px rgba(0,113,227,0.6);
+        }
+
+        /* Panel fade-in */
+        .panel.visible {
+            animation: panelReveal 0.45s cubic-bezier(.22,1,.36,1) both;
+        }
+        @keyframes panelReveal {
+            from { opacity:0; transform: translateY(18px); }
+            to   { opacity:1; transform: translateY(0); }
+        }
+
+        /* Nav button active pulse */
+        nav button.active {
+            animation: navPulse 0.35s cubic-bezier(.22,1,.36,1);
+        }
+        @keyframes navPulse {
+            0%   { transform: scale(1); }
+            45%  { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Card hover lift */
+        .card {
+            transition: transform 0.25s cubic-bezier(.22,1,.36,1),
+                        box-shadow 0.25s ease,
+                        opacity 0.5s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.09);
+        }
+
+        /* Skill bar animated fill */
+        .skill-bar-fill {
+            width: 0% !important;
+            transition: width 1.1s cubic-bezier(.22,1,.36,1);
+        }
+        .skill-bar-fill.animated {
+            width: var(--bar-target) !important;
+        }
+
+        /* proj-overview item hover */
+        .proj-overview-item {
+            transition: background 0.2s, padding-left 0.2s;
+        }
+        .proj-overview-item:hover {
+            padding-left: 36px;
+        }
+
+        /* proj-detail open animation */
+        .proj-detail.open {
+            animation: accordionOpen 0.45s cubic-bezier(.22,1,.36,1) both;
+        }
+        @keyframes accordionOpen {
+            from { opacity:0; transform: translateY(-12px); }
+            to   { opacity:1; transform: translateY(0); }
+        }
+
+        /* Contact card shimmer on hover */
+        .contact-clean-card::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -60%;
+            width: 40%; height: 200%;
+            background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.35) 50%, transparent 60%);
+            transform: skewX(-20deg);
+            transition: left 0.55s ease;
+            pointer-events: none;
+        }
+        .contact-clean-card:hover::after {
+            left: 130%;
+        }
+
+        /* section-title underline draw */
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            height: 3px;
+            width: 0;
+            border-radius: 2px;
+            background: linear-gradient(90deg, #0071e3, #34aadc);
+            transition: width 0.6s cubic-bezier(.22,1,.36,1);
+        }
+        .panel.visible .section-title::after {
+            width: 100%;
+        }
+
+        /* travel-card hover */
+        .travel-card {
+            transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.25s ease, opacity 0.5s ease;
+        }
+        .travel-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+        }
+
+        /* proj-result-item icon bounce on section open */
+        .proj-detail.open .proj-result-icon {
+            animation: iconBounce 0.6s cubic-bezier(.22,1,.36,1) 0.3s both;
+        }
+        @keyframes iconBounce {
+            0%   { transform: scale(0.5); opacity:0; }
+            70%  { transform: scale(1.15); }
+            100% { transform: scale(1); opacity:1; }
+        }
+
+        /* ===== CND SHOWCASE STRIP ===== */
+        .cnd-strip {
+            transition: opacity 0.5s ease;
+            position: relative;
+            width: 100%;
+            height: 160px;
+            overflow: hidden;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+        .cnd-scene {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            opacity: 0;
+            transition: opacity 0.9s ease;
+        }
+        .cnd-scene.active {
+            opacity: 1;
+        }
+        .cnd-scene-center {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .cnd-label {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+        .cnd-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            opacity: 0.85;
+        }
+        /* Ressuage colors */
+        .cnd-pt .cnd-label { color: #9333ea; }
+        .cnd-pt .cnd-name  { color: #6b21a8; }
+        /* Ultrasons colors */
+        .cnd-ut .cnd-label { color: #0284c7; }
+        .cnd-ut .cnd-name  { color: #0c4a6e; }
+        /* Radiographie colors */
+        .cnd-rt .cnd-label { color: #059669; }
+        .cnd-rt .cnd-name  { color: #064e3b; }
+
+        /* SVG animation classes */
+        .cnd-svg { flex-shrink: 0; }
+
+        /* PT - penetrant drop fill animation */
+        @keyframes ptFill {
+            0%   { height: 0; y: 60; }
+            60%  { height: 18; y: 42; }
+            80%  { height: 18; y: 42; }
+            100% { height: 0; y: 60; }
+        }
+        @keyframes ptGlow {
+            0%,100% { opacity: 0; }
+            30%,70% { opacity: 1; }
+        }
+        @keyframes ptDrop {
+            0%   { transform: translateY(-14px); opacity: 0; }
+            20%  { transform: translateY(0); opacity: 1; }
+            80%  { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(8px); opacity: 0; }
+        }
+        @keyframes ptPenetrate {
+            0%,20% { opacity: 0; stroke-dashoffset: 30; }
+            50%    { opacity: 1; stroke-dashoffset: 0; }
+            80%    { opacity: 1; stroke-dashoffset: 0; }
+            100%   { opacity: 0; }
+        }
+        @keyframes ptReveal {
+            0%,55% { opacity: 0; }
+            70%,85% { opacity: 1; }
+            100%    { opacity: 0; }
+        }
+
+        /* UT - wave pulse animation */
+        @keyframes utPulse {
+            0%   { transform: scaleX(0); opacity: 0.9; }
+            60%  { transform: scaleX(1); opacity: 0.2; }
+            100% { transform: scaleX(1); opacity: 0; }
+        }
+        @keyframes utEcho {
+            0%,40% { transform: scaleX(0); opacity: 0; }
+            60%    { transform: scaleX(0.4); opacity: 0.7; }
+            100%   { transform: scaleX(0); opacity: 0; }
+        }
+        @keyframes utTransducer {
+            0%,100% { transform: translateY(0); }
+            25%     { transform: translateY(-3px); }
+            75%     { transform: translateY(-3px); }
+        }
+
+        /* RT - X-ray sweep animation */
+        @keyframes rtBeam {
+            0%   { opacity: 0; }
+            20%  { opacity: 0.85; }
+            80%  { opacity: 0.85; }
+            100% { opacity: 0; }
+        }
+        @keyframes rtFilm {
+            0%,50% { opacity: 0.15; }
+            70%    { opacity: 1; }
+            100%   { opacity: 0; }
+        }
+        @keyframes rtScan {
+            0%   { transform: translateX(-40px); }
+            100% { transform: translateX(40px); }
         }
     </style>
 </head>
@@ -881,6 +1199,244 @@
         <button onclick="show('voyages', this)">🌍 Voyages</button>
         <button onclick="show('contact', this)">📩 Contact</button>
     </nav>
+</div>
+
+
+<!-- CND SHOWCASE STRIP -->
+<div class="cnd-strip" id="cndStrip">
+
+  <!-- SCENE 1 : RESSUAGE (PT) -->
+  <div class="cnd-scene cnd-pt active" id="cndPT">
+    <!-- Left SVG: piece cross-section with penetrant -->
+    <svg class="cnd-svg" width="180" height="120" viewBox="0 0 180 120">
+      <!-- piece body -->
+      <rect x="10" y="50" width="160" height="50" rx="4" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+      <!-- crack in piece -->
+      <path d="M85 50 L82 62 L88 72 L84 82 L88 100" stroke="#64748b" stroke-width="2" fill="none"/>
+      <!-- penetrant liquid on surface (animated) -->
+      <g style="animation: ptDrop 3.5s ease-in-out infinite 0.3s">
+        <ellipse cx="86" cy="46" rx="5" ry="7" fill="#c026d3" opacity="0.85"/>
+        <path d="M86 53 L83 50 L89 50 Z" fill="#c026d3"/>
+      </g>
+      <!-- penetrant in crack glowing (animated) -->
+      <path d="M85 50 L82 62 L88 72 L84 82 L88 100" 
+            stroke="#e879f9" stroke-width="3.5" fill="none" 
+            stroke-dasharray="30" stroke-dashoffset="30"
+            style="animation: ptPenetrate 3.5s ease infinite"/>
+      <!-- UV lamp top-right -->
+      <rect x="130" y="10" width="36" height="14" rx="4" fill="#7c3aed"/>
+      <text x="148" y="21" font-size="8" fill="white" text-anchor="middle" font-family="monospace">UV</text>
+      <line x1="136" y1="24" x2="100" y2="48" stroke="#a855f7" stroke-width="1" stroke-dasharray="3,2" opacity="0.6"/>
+      <line x1="148" y1="24" x2="86" y2="48" stroke="#a855f7" stroke-width="1" stroke-dasharray="3,2" opacity="0.6"/>
+      <!-- fluorescent reveal indication (animated) -->
+      <ellipse cx="86" cy="50" rx="9" ry="4" fill="#f0abfc" opacity="0"
+               style="animation: ptReveal 3.5s ease infinite; filter: blur(2px)"/>
+      <!-- labels -->
+      <text x="90" y="115" font-size="8.5" fill="#6b21a8" font-family="monospace" text-anchor="middle">PÉNÉTRANT FLUORESCENT</text>
+    </svg>
+
+    <div class="cnd-scene-center">
+      <div class="cnd-label">Méthode CND</div>
+      <div class="cnd-name">🔮 Ressuage — PT</div>
+      <svg width="120" height="28" viewBox="0 0 120 28">
+        <!-- process steps -->
+        <circle cx="15" cy="14" r="10" fill="#f3e8ff" stroke="#9333ea" stroke-width="1.5"/>
+        <text x="15" y="18" font-size="7" fill="#7e22ce" text-anchor="middle" font-weight="bold">PT</text>
+        <line x1="25" y1="14" x2="40" y2="14" stroke="#d8b4fe" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <circle cx="50" cy="14" r="10" fill="#fdf4ff" stroke="#c026d3" stroke-width="1.5"/>
+        <text x="50" y="18" font-size="7" fill="#86198f" text-anchor="middle" font-weight="bold">UV</text>
+        <line x1="60" y1="14" x2="75" y2="14" stroke="#d8b4fe" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <circle cx="85" cy="14" r="10" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+        <text x="85" y="18" font-size="6" fill="#9d174d" text-anchor="middle" font-weight="bold">REV</text>
+        <line x1="95" y1="14" x2="108" y2="14" stroke="#d8b4fe" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <text x="115" y="18" font-size="12" text-anchor="middle">✓</text>
+      </svg>
+      <div style="font-size:0.7rem; color:#7c3aed; font-weight:600; opacity:0.75;">Détection des défauts débouchants en surface</div>
+    </div>
+
+    <!-- Right SVG: cale de référence / result -->
+    <svg class="cnd-svg" width="160" height="120" viewBox="0 0 160 120">
+      <!-- reference block -->
+      <rect x="20" y="30" width="120" height="60" rx="6" fill="#f3e8ff" stroke="#9333ea" stroke-width="1.5"/>
+      <!-- indication lines (glowing cracks visible) -->
+      <g style="animation: ptReveal 3.5s ease infinite 0.6s">
+        <line x1="45" y1="30" x2="50" y2="90" stroke="#e879f9" stroke-width="3" stroke-linecap="round" filter="url(#glow)"/>
+        <line x1="70" y1="30" x2="65" y2="90" stroke="#e879f9" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="95" y1="30" x2="99" y2="90" stroke="#e879f9" stroke-width="3" stroke-linecap="round"/>
+        <line x1="118" y1="30" x2="113" y2="90" stroke="#e879f9" stroke-width="2" stroke-linecap="round"/>
+      </g>
+      <defs>
+        <filter id="glow"><feGaussianBlur stdDeviation="2" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <text x="80" y="108" font-size="8" fill="#6b21a8" text-anchor="middle" font-family="monospace">Cale de référence PSM-5</text>
+      <!-- UV light glow overlay -->
+      <rect x="20" y="30" width="120" height="60" rx="6" fill="url(#uvGrad)" opacity="0.3"
+            style="animation: ptGlow 3.5s ease infinite"/>
+      <defs>
+        <radialGradient id="uvGrad" cx="50%" cy="50%">
+          <stop offset="0%" stop-color="#e879f9" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <!-- SCENE 2 : ULTRASONS (UT) -->
+  <div class="cnd-scene cnd-ut" id="cndUT">
+    <!-- Left SVG: transducer + waves -->
+    <svg class="cnd-svg" width="180" height="120" viewBox="0 0 180 120">
+      <!-- piece -->
+      <rect x="10" y="55" width="160" height="45" rx="4" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+      <!-- internal flaw -->
+      <ellipse cx="90" cy="75" rx="14" ry="6" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3,2"/>
+      <!-- transducer (animated) -->
+      <g style="animation: utTransducer 3s ease-in-out infinite">
+        <rect x="72" y="30" width="36" height="22" rx="5" fill="#0369a1" stroke="#0284c7" stroke-width="1.5"/>
+        <rect x="78" y="40" width="24" height="6" rx="2" fill="#38bdf8"/>
+        <text x="90" y="26" font-size="7.5" fill="#0c4a6e" text-anchor="middle" font-family="monospace" font-weight="bold">TRANSDUCTEUR</text>
+      </g>
+      <!-- coupling gel -->
+      <ellipse cx="90" cy="53" rx="18" ry="3" fill="#7dd3fc" opacity="0.5"/>
+      <!-- US waves going down (animated) -->
+      <g transform-origin="90 55" style="animation: utPulse 1.6s ease-out infinite">
+        <path d="M62 58 Q90 52 118 58" stroke="#0ea5e9" stroke-width="2" fill="none" opacity="0.8"/>
+        <path d="M58 65 Q90 57 122 65" stroke="#38bdf8" stroke-width="1.5" fill="none" opacity="0.6"/>
+        <path d="M55 72 Q90 62 125 72" stroke="#7dd3fc" stroke-width="1" fill="none" opacity="0.4"/>
+      </g>
+      <!-- echo reflected (animated) -->
+      <g transform-origin="90 75" style="animation: utEcho 1.6s ease-out infinite 0.5s">
+        <path d="M68 72 Q90 68 112 72" stroke="#f59e0b" stroke-width="2.5" fill="none" opacity="0.9"/>
+        <path d="M72 66 Q90 63 108 66" stroke="#fbbf24" stroke-width="1.5" fill="none" opacity="0.6"/>
+      </g>
+      <text x="90" y="115" font-size="8.5" fill="#0c4a6e" font-family="monospace" text-anchor="middle">PULSE-ECHO — DÉFAUT INTERNE</text>
+    </svg>
+
+    <div class="cnd-scene-center">
+      <div class="cnd-label">Méthode CND</div>
+      <div class="cnd-name">📡 Ultrasons — UT</div>
+      <!-- oscilloscope-style waveform -->
+      <svg width="130" height="40" viewBox="0 0 130 40">
+        <rect x="0" y="0" width="130" height="40" rx="4" fill="#0c4a6e" opacity="0.9"/>
+        <line x1="0" y1="20" x2="130" y2="20" stroke="#1e40af" stroke-width="0.5"/>
+        <!-- emission pulse -->
+        <path d="M10 20 L10 8 L16 8 L16 20" stroke="#38bdf8" stroke-width="1.5" fill="none"/>
+        <!-- echo from flaw -->
+        <path d="M58 20 L58 10 L63 10 L63 20" stroke="#f59e0b" stroke-width="1.5" fill="none"/>
+        <!-- back-wall echo -->
+        <path d="M105 20 L105 6 L110 6 L110 20" stroke="#38bdf8" stroke-width="1.5" fill="none"/>
+        <!-- baseline noise -->
+        <path d="M20 20 Q25 19 30 21 Q35 19 40 20 Q45 21 50 20" stroke="#1e40af" stroke-width="0.8" fill="none"/>
+        <path d="M68 20 Q73 21 78 19 Q83 21 88 20 Q93 19 98 20" stroke="#1e40af" stroke-width="0.8" fill="none"/>
+        <text x="13" y="37" font-size="5.5" fill="#7dd3fc" font-family="monospace">E</text>
+        <text x="60" y="37" font-size="5.5" fill="#fbbf24" font-family="monospace">DÉFAUT</text>
+        <text x="103" y="37" font-size="5.5" fill="#7dd3fc" font-family="monospace">BW</text>
+      </svg>
+      <div style="font-size:0.7rem; color:#0284c7; font-weight:600; opacity:0.75;">Détection des défauts internes — débouchants et non débouchants</div>
+    </div>
+
+    <!-- Right SVG: frequency spectrum -->
+    <svg class="cnd-svg" width="160" height="120" viewBox="0 0 160 120">
+      <text x="80" y="14" font-size="8" fill="#0c4a6e" text-anchor="middle" font-family="monospace" font-weight="bold">SPECTRE FRÉQUENCE</text>
+      <rect x="15" y="18" width="130" height="80" rx="3" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1"/>
+      <!-- axes -->
+      <line x1="25" y1="88" x2="140" y2="88" stroke="#94a3b8" stroke-width="1"/>
+      <line x1="25" y1="88" x2="25" y2="22" stroke="#94a3b8" stroke-width="1"/>
+      <!-- frequency curve -->
+      <path d="M25 88 Q40 88 55 60 Q70 32 85 26 Q100 22 110 35 Q120 50 130 70 Q138 82 145 88" 
+            stroke="#0284c7" stroke-width="2" fill="none"/>
+      <path d="M25 88 Q40 88 55 60 Q70 32 85 26 Q100 22 110 35 Q120 50 130 70 Q138 82 145 88 L145 88 L25 88 Z" 
+            fill="#0284c7" opacity="0.1"/>
+      <!-- -6dB line -->
+      <line x1="25" y1="50" x2="145" y2="50" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
+      <text x="147" y="53" font-size="6" fill="#ef4444" font-family="monospace">-6dB</text>
+      <!-- frequency labels -->
+      <text x="25" y="98" font-size="6" fill="#64748b" text-anchor="middle" font-family="monospace">0</text>
+      <text x="85" y="98" font-size="6" fill="#64748b" text-anchor="middle" font-family="monospace">5MHz</text>
+      <text x="145" y="98" font-size="6" fill="#64748b" text-anchor="middle" font-family="monospace">15MHz</text>
+      <text x="80" y="112" font-size="7.5" fill="#0c4a6e" text-anchor="middle" font-family="monospace">KEYSIGHT DSOX1102G</text>
+    </svg>
+  </div>
+
+  <!-- SCENE 3 : RADIOGRAPHIE (RT) -->
+  <div class="cnd-scene cnd-rt" id="cndRT">
+    <!-- Left SVG: X-ray source + piece -->
+    <svg class="cnd-svg" width="180" height="120" viewBox="0 0 180 120">
+      <!-- X-ray source -->
+      <circle cx="90" cy="12" r="10" fill="#065f46" stroke="#059669" stroke-width="1.5"/>
+      <text x="90" y="16" font-size="7" fill="white" text-anchor="middle" font-weight="bold">X</text>
+      <!-- beam cone (animated) -->
+      <g style="animation: rtBeam 4s ease-in-out infinite">
+        <path d="M80 22 L40 65 L140 65 L100 22 Z" fill="url(#xrayGrad)" opacity="0.35"/>
+        <!-- scan line moving across -->
+        <g style="animation: rtScan 2s linear infinite">
+          <line x1="90" y1="22" x2="90" y2="65" stroke="#6ee7b7" stroke-width="1.5" opacity="0.8"/>
+        </g>
+      </g>
+      <defs>
+        <linearGradient id="xrayGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#10b981" stop-opacity="0.8"/>
+          <stop offset="100%" stop-color="#10b981" stop-opacity="0.05"/>
+        </linearGradient>
+      </defs>
+      <!-- piece being X-rayed -->
+      <rect x="25" y="65" width="130" height="28" rx="3" fill="#d1fae5" stroke="#059669" stroke-width="1.5"/>
+      <!-- internal defect (void = lighter area) -->
+      <ellipse cx="75" cy="79" rx="10" ry="5" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="1" stroke-dasharray="2,1"/>
+      <ellipse cx="115" cy="79" rx="6" ry="4" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="1" stroke-dasharray="2,1"/>
+      <!-- film/detector below -->
+      <rect x="20" y="96" width="140" height="8" rx="2" fill="#374151" stroke="#6b7280"/>
+      <text x="90" y="115" font-size="8.5" fill="#064e3b" font-family="monospace" text-anchor="middle">SOURCE RX → PIÈCE → FILM</text>
+    </svg>
+
+    <div class="cnd-scene-center">
+      <div class="cnd-label">Méthode CND</div>
+      <div class="cnd-name">☢️ Radiographie — RT</div>
+      <!-- film result simulation -->
+      <svg width="120" height="44" viewBox="0 0 120 44">
+        <rect x="0" y="0" width="120" height="44" rx="4" fill="#111827"/>
+        <!-- film background gray scale -->
+        <rect x="4" y="4" width="112" height="36" rx="2" fill="#374151"/>
+        <!-- piece projection (lighter) -->
+        <rect x="10" y="8" width="100" height="24" rx="2" fill="#6b7280" opacity="0.9"/>
+        <!-- defect 1 : void (darker) -->
+        <ellipse cx="42" cy="20" rx="10" ry="6" fill="#1f2937" opacity="0.95"
+                 style="animation: rtFilm 4s ease-in-out infinite"/>
+        <!-- defect 2 : inclusion (lighter) -->
+        <ellipse cx="78" cy="20" rx="7" ry="4" fill="#9ca3af" opacity="0.9"
+                 style="animation: rtFilm 4s ease-in-out infinite 0.3s"/>
+        <text x="42" y="37" font-size="5" fill="#6ee7b7" text-anchor="middle" font-family="monospace">VIDE</text>
+        <text x="78" y="37" font-size="5" fill="#fbbf24" text-anchor="middle" font-family="monospace">INCLUSION</text>
+      </svg>
+      <div style="font-size:0.7rem; color:#059669; font-weight:600; opacity:0.75;">Détection volumique — internes et débouchants</div>
+    </div>
+
+    <!-- Right SVG: film developed result -->
+    <svg class="cnd-svg" width="160" height="120" viewBox="0 0 160 120">
+      <text x="80" y="14" font-size="8" fill="#064e3b" text-anchor="middle" font-family="monospace" font-weight="bold">FILM RADIOGRAPHIQUE</text>
+      <!-- film frame -->
+      <rect x="15" y="18" width="130" height="85" rx="4" fill="#111827" stroke="#374151" stroke-width="2"/>
+      <!-- film content (animated reveal) -->
+      <g style="animation: rtFilm 4s ease-in-out infinite 0.5s">
+        <!-- piece silhouette on film -->
+        <rect x="25" y="30" width="110" height="55" rx="3" fill="#4b5563"/>
+        <!-- weld line / structure -->
+        <line x1="80" y1="30" x2="80" y2="85" stroke="#6b7280" stroke-width="3"/>
+        <!-- crack indication -->
+        <path d="M55 35 L50 60 L58 75 L53 85" stroke="#111827" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <!-- porosity cluster -->
+        <circle cx="105" cy="52" r="4" fill="#1f2937"/>
+        <circle cx="112" cy="58" r="3" fill="#1f2937"/>
+        <circle cx="100" cy="60" r="2.5" fill="#1f2937"/>
+        <!-- IQI / penetrameter -->
+        <rect x="28" y="78" width="18" height="5" rx="1" fill="#9ca3af"/>
+        <text x="37" y="83" font-size="4" fill="#111827" text-anchor="middle" font-family="monospace">IQI</text>
+      </g>
+      <text x="80" y="112" font-size="7" fill="#064e3b" text-anchor="middle" font-family="monospace">EN ISO 17636 / ASTM E1742</text>
+    </svg>
+  </div>
+
 </div>
 
 <div class="content" id="mainContent">
@@ -974,6 +1530,30 @@
                     <span>Mécanique · CAO · Ressuage</span>
                 </div>
                 <div class="proj-overview-arrow" id="arr-p3">↓</div>
+            </div>
+            <div class="proj-overview-item" onclick="toggleProject('p4')">
+                <div class="proj-overview-num">04</div>
+                <div class="proj-overview-info">
+                    <strong>Qualification de la norme AITM 6-1001</strong>
+                    <span>Normative · Qualité · Airbus · Dassault</span>
+                </div>
+                <div class="proj-overview-arrow" id="arr-p4">↓</div>
+            </div>
+            <div class="proj-overview-item" onclick="toggleProject('p5')">
+                <div class="proj-overview-num">05</div>
+                <div class="proj-overview-info">
+                    <strong>Optimisation du cycle d'étuvage — Référentiel DGQT</strong>
+                    <span>Métrologie · Cahier des charges · Dassault Aviation</span>
+                </div>
+                <div class="proj-overview-arrow" id="arr-p5">↓</div>
+            </div>
+            <div class="proj-overview-item" onclick="toggleProject('p6')">
+                <div class="proj-overview-num">06</div>
+                <div class="proj-overview-info">
+                    <strong>Étude &amp; Changement de Gamme Produits Ressuage</strong>
+                    <span>RSE · Sherwin · Fluxo · Analyse économique</span>
+                </div>
+                <div class="proj-overview-arrow" id="arr-p6">↓</div>
             </div>
         </div>
 
@@ -1254,6 +1834,309 @@
                 <div class="proj-pdf-placeholder">
                     <i class="fas fa-file-pdf"></i>
                     <span>Rapport PDF dédié — à venir</span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- ===== PROJET IV ===== -->
+        <div class="proj-detail" id="p4">
+            <div class="proj-hero proj-hero-blue">
+                <div class="proj-hero-label">Projet IV · JVcoating · BUT2 2024–2025</div>
+                <h3 class="proj-hero-title">Qualification de la norme<br>AITM 6-1001 v15→v16</h3>
+                <div class="proj-hero-tags">
+                    <span>Airbus</span><span>AITM 6-1001</span><span>Niveau 3 PT</span><span>Matrice écarts</span><span>Documentation qualité</span>
+                </div>
+            </div>
+            <div class="proj-body">
+                <div class="proj-context">
+                    <div class="proj-context-icon">📋</div>
+                    <div><strong>Contexte</strong><br>Publication de la version 16 de la norme Airbus AITM 6-1001 peu après la prise de poste (v15 en vigueur). Nécessité de mise à jour rapide des procédures internes pour maintenir la conformité client.</div>
+                </div>
+                <div class="proj-volets">
+                    <div class="proj-volet">
+                        <div class="proj-volet-head">
+                            <span class="proj-volet-badge blue">Analyse</span>
+                            <strong>Comparaison détaillée v15 → v16</strong>
+                        </div>
+                        <div class="proj-steps">
+                            <div class="proj-step"><div class="proj-step-dot blue"></div><div><strong>Lecture et interprétation</strong> — Étude technique complète de la norme AITM 6-1001 v16 (50 pages) pour identifier chaque évolution par rapport à la v15.</div></div>
+                            <div class="proj-step"><div class="proj-step-dot blue"></div><div><strong>Matrice des écarts</strong> — Répertoriation de tous les écarts dans une matrice de spécifications clients, croisée avec les exigences Airbus et Dassault.</div></div>
+                            <div class="proj-step"><div class="proj-step-dot blue"></div><div><strong>Confrontation à l'Instruction de Contrôle</strong> — Comparaison des écarts avec l'IC en vigueur (rédigée par le Niveau 3 PT), identification des ajustements nécessaires.</div></div>
+                        </div>
+                    </div>
+                    <div class="proj-volet">
+                        <div class="proj-volet-head">
+                            <span class="proj-volet-badge indigo">Mise en conformité</span>
+                            <strong>Plan d'action documentaire</strong>
+                        </div>
+                        <div class="proj-steps">
+                            <div class="proj-step"><div class="proj-step-dot indigo"></div><div><strong>Validation technique</strong> — Présentation des modifications au référent CND M. Ludovic Lanusse (Bureau technique) pour validation.</div></div>
+                            <div class="proj-step"><div class="proj-step-dot indigo"></div><div><strong>Approbation Niveau 3</strong> — Soumission au Niveau 3 PT pour vérification et signature. Intégration des nouvelles exigences dans les procédures internes.</div></div>
+                            <div class="proj-step"><div class="proj-step-dot indigo"></div><div><strong>Mise à jour IC</strong> — Rédaction et transmission de la demande de mise à jour de l'Instruction de Contrôle en coordination avec le bureau d'études.</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="proj-results">
+                    <div class="proj-result-item"><div class="proj-result-icon">✅</div><div><strong>Conformité maintenue</strong><br><span>Mise en conformité complète avec la v16 avant tout audit client.</span></div></div>
+                    <div class="proj-result-item"><div class="proj-result-icon">📄</div><div><strong>Pilotage documentaire</strong><br><span>Maîtrise du cycle de validation : opérateur → bureau technique → Niveau 3 → client.</span></div></div>
+                    <div class="proj-result-item"><div class="proj-result-icon">🤝</div><div><strong>Coordination interservices</strong><br><span>Interface production / qualité / bureau technique renforcée.</span></div></div>
+                </div>
+                <div class="proj-pdf-placeholder">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Rapport BUT2 PDF — à venir</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PROJET V ===== -->
+        <div class="proj-detail" id="p5">
+            <div class="proj-hero proj-hero-green">
+                <div class="proj-hero-label">Projet V · JVcoating · BUT2 2024–2025</div>
+                <h3 class="proj-hero-title">Optimisation du Cycle d'Étuvage<br>Référentiel DGQT — Dassault Aviation</h3>
+                <div class="proj-hero-tags">
+                    <span>Dassault Aviation</span><span>DGQT</span><span>Métrologie</span><span>Cahier des charges</span><span>Réduction cycle</span>
+                </div>
+            </div>
+            <div class="proj-body">
+                <div class="proj-context">
+                    <div class="proj-context-icon">🌡️</div>
+                    <div><strong>Objectif</strong><br>Analyser les spécifications Dassault (DGQT) pour identifier une possibilité de réduction du temps d'étuvage, augmenter le débit de pièces contrôlées sans compromettre la qualité du ressuage.</div>
+                </div>
+                <div class="proj-volets">
+                    <div class="proj-volet">
+                        <div class="proj-volet-head">
+                            <span class="proj-volet-badge green">Analyse normative</span>
+                            <strong>Réduction du temps d'étuvage — Gamme dégraissage/décapage</strong>
+                        </div>
+                        <div class="proj-steps">
+                            <div class="proj-step"><div class="proj-step-dot green"></div><div><strong>Paramètres initiaux</strong> — 45 min à 60°C. Lecture du référentiel DGQT → possibilité de passer à 20 min à 80°C sous condition de séchage complet en sortie.</div></div>
+                            <div class="proj-step"><div class="proj-step-dot green"></div><div><strong>Condition critique</strong> — Les pièces doivent arriver parfaitement sèches au poste de ressuage. Un séchage incomplet invalide le gain de temps.</div></div>
+                        </div>
+                    </div>
+                    <div class="proj-volet">
+                        <div class="proj-volet-head">
+                            <span class="proj-volet-badge teal">Optimisation avancée</span>
+                            <strong>Réduction du cycle par facteur 2,25</strong>
+                        </div>
+                        <div class="proj-steps">
+                            <div class="proj-step"><div class="proj-step-dot teal"></div><div><strong>Analyse de gamme</strong> — Identification d'un réglage au minimum de température avec le temps de cycle le plus long. Augmentation jusqu'au maximum autorisé par le client.</div></div>
+                            <div class="proj-step"><div class="proj-step-dot teal"></div><div><strong>Essais sur pièce rebut</strong> — Validation du séchage en sortie à température max / temps minimum. Résultats concluants.</div></div>
+                            <div class="proj-step"><div class="proj-step-dot teal"></div><div><strong>Cahier des charges</strong> — Rédaction d'un document interne validé par le bureau technique, transmis à Dassault Aviation pour approbation du nouveau paramétrage.</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="proj-results">
+                    <div class="proj-result-item"><div class="proj-result-icon">⚡</div><div><strong>Cycle ÷2,25</strong><br><span>Réduction théorique du temps de cycle — doublement du débit de pièces traitées.</span></div></div>
+                    <div class="proj-result-item"><div class="proj-result-icon">📐</div><div><strong>Métrologie validée</strong><br><span>Qualification métrologique des étuves, relevés de température, conformité aux tolérances DGQT.</span></div></div>
+                    <div class="proj-result-item"><div class="proj-result-icon">🏭</div><div><strong>Impact productivité</strong><br><span>Amélioration de la capacité du poste ressuage sans investissement matériel.</span></div></div>
+                </div>
+                <div class="proj-pdf-placeholder">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Rapport BUT2 PDF — à venir</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PROJET VI ===== -->
+        <div class="proj-detail" id="p6">
+            <div class="proj-hero proj-hero-orange">
+                <div class="proj-hero-label">Projet VI · JVcoating · BUT2 2024–2025</div>
+                <h3 class="proj-hero-title">Étude &amp; Changement de Gamme<br>Produits de Ressuage</h3>
+                <div class="proj-hero-tags">
+                    <span>RSE · Santé</span><span>Sherwin</span><span>Fluxo</span><span>H304</span><span>Charbon actif</span><span>Analyse économique</span>
+                </div>
+            </div>
+            <div class="proj-body">
+                <div class="proj-context">
+                    <div class="proj-context-icon">🌿</div>
+                    <div><strong>Problématique</strong><br>Les pénétrants actuels (base pétrole, classification H304 — mortel en cas d'ingestion) présentent des risques pour la santé des opérateurs et une charge organique élevée pour la station de traitement par charbon actif. Étude comparative de 3 gammes de produits.</div>
+                </div>
+
+                <div class="proj-muda-grid" style="grid-template-columns: repeat(3,1fr);">
+                    <div class="proj-muda-item" style="background:#fef2f2;border-color:#fecaca;">
+                        <span class="muda-icon">⚗️</span>
+                        <strong style="color:#991b1b;">Gamme actuelle</strong>
+                        <p style="color:#7f1d1d;">Sherwin HM3A/HM-430 — base pétrole, H304. Coût mensuel : <strong>900,33 €</strong>. Référence qualité.</p>
+                    </div>
+                    <div class="proj-muda-item" style="background:#faf5ff;border-color:#e9d5ff;">
+                        <span class="muda-icon">🧪</span>
+                        <strong style="color:#6b21a8;">Nouvelle Sherwin</strong>
+                        <p style="color:#581c87;">HM-440/HM-604 — sans pétrole, pas H304. Coût : <strong>1 250,32 €</strong> (+38,9%). Tests cales validés ✓</p>
+                    </div>
+                    <div class="proj-muda-item" style="background:#f0fdf4;border-color:#bbf7d0;">
+                        <span class="muda-icon">🌱</span>
+                        <strong style="color:#065f46;">Fluxo — Recommandé</strong>
+                        <p style="color:#166534;">B12/B13 — sans pétrole, pas H304. Coût : <strong>897,30 €</strong> (-0,34%). Tests cales validés ✓</p>
+                    </div>
+                </div>
+
+                <div class="proj-volets">
+                    <div class="proj-volet">
+                        <div class="proj-volet-head">
+                            <span class="proj-volet-badge orange">Protocole</span>
+                            <strong>Méthode d'évaluation comparative</strong>
+                        </div>
+                        <div class="proj-steps">
+                            <div class="proj-step"><div class="proj-step-dot orange"></div><div><strong>Tests sur cales de référence PSM-5</strong> — Chaque gamme doit détecter 4 indications (S2) et 5 indications (S3). Critère qualité non négociable.</div></div>
+                            <div class="proj-step"><div class="proj-step-dot orange"></div><div><strong>Analyse charbon actif</strong> — Les produits sans dérivés pétroliers prolongent la durée de vie du charbon actif de 70%, réduisant les coûts de maintenance de la station.</div></div>
+                            <div class="proj-step"><div class="proj-step-dot orange"></div><div><strong>Analyse de risque H304</strong> — Identification des molécules à risque (25–50% dans HM3A/HM-430). Calcul des EPI : 4 demi-masques A2P3/mois inclus dans le coût actuel.</div></div>
+                        </div>
+                    </div>
+                    <div class="proj-volet">
+                        <div class="proj-volet-head">
+                            <span class="proj-volet-badge amber">Qualification</span>
+                            <strong>Prochaines étapes pour la qualification officielle</strong>
+                        </div>
+                        <div class="proj-steps">
+                            <div class="proj-step"><div class="proj-step-dot" style="background:#d97706;"></div><div><strong>Validation direction</strong> — Obtenir l'aval de M. Louis-Ary Aure (directeur de site) pour lancement officiel.</div></div>
+                            <div class="proj-step"><div class="proj-step-dot" style="background:#d97706;"></div><div><strong>Mise à jour documentaire</strong> — IC, gammes opératoires, tout document référençant l'ancienne gamme.</div></div>
+                            <div class="proj-step"><div class="proj-step-dot" style="background:#d97706;"></div><div><strong>Requalification client</strong> — Contact Airbus et Dassault pour qualification contractuelle du procédé avec les nouveaux produits. Mission poursuivie en 2ème année d'alternance.</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proj-budget">
+                    <div class="proj-budget-title">💰 Comparatif mensuel des 3 gammes</div>
+                    <div class="proj-budget-grid">
+                        <div class="proj-budget-item"><span>900,33 €</span><p>Sherwin actuelle (référence)</p></div>
+                        <div class="proj-budget-item"><span style="color:#dc2626;">1 250,32 €</span><p>Nouvelle Sherwin (+38,9%)</p></div>
+                        <div class="proj-budget-total"><span>897,30 €</span><p>Fluxo — recommandée (−0,34%)</p></div>
+                    </div>
+                </div>
+
+                <div class="proj-results">
+                    <div class="proj-result-item"><div class="proj-result-icon">🌿</div><div><strong>Impact environnemental</strong><br><span>Charbon actif −70% de consommation. Effluents moins chargés en COV.</span></div></div>
+                    <div class="proj-result-item"><div class="proj-result-icon">🛡️</div><div><strong>Santé opérateurs</strong><br><span>Suppression du risque H304. Élimination des demi-masques A2P3 (120€/mois).</span></div></div>
+                    <div class="proj-result-item"><div class="proj-result-icon">📊</div><div><strong>Performance maintenue</strong><br><span>Détection S2/S3 validée sur cales PSM-5. Conformité AMS-2644 vérifiée.</span></div></div>
+                </div>
+                <div class="proj-pdf-placeholder">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Rapport BUT2 PDF — à venir</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SÉPARATEUR PROJETS ACADÉMIQUES ===== -->
+        <div class="proj-section-sep">
+            <div class="proj-section-sep-line"></div>
+            <div class="proj-section-sep-label">Projets académiques · IUT Bordeaux</div>
+            <div class="proj-section-sep-line"></div>
+        </div>
+
+        <div class="proj-overview proj-overview-acad">
+            <div class="proj-overview-item" onclick="toggleProject('pa1')">
+                <div class="proj-overview-num proj-overview-num-acad">A1</div>
+                <div class="proj-overview-info">
+                    <strong>TP CND par Ultrasons</strong>
+                    <span>Contrôle UT · Piézoélectricité · Oscilloscope · Université de Bordeaux</span>
+                </div>
+                <div class="proj-overview-arrow" id="arr-pa1">↓</div>
+            </div>
+            <div class="proj-overview-item" onclick="toggleProject('pa2')">
+                <div class="proj-overview-num proj-overview-num-acad">A2</div>
+                <div class="proj-overview-info">
+                    <strong>Étude des Matériaux — Feuille A0</strong>
+                    <span>Microstructure · Microdureté · Densité · Résistivité · Brillance · Magnétisme</span>
+                </div>
+                <div class="proj-overview-arrow" id="arr-pa2">↓</div>
+            </div>
+        </div>
+
+        <!-- PROJET A1 -->
+        <div class="proj-detail" id="pa1">
+            <div class="proj-hero proj-hero-purple">
+                <div class="proj-hero-label">TP n°5 · Université de Bordeaux · 13/06/2024</div>
+                <h3 class="proj-hero-title">CND par Ultrasons</h3>
+                <div class="proj-hero-tags">
+                    <span>Ultrasons (UT)</span><span>Piézoélectricité</span><span>Oscilloscope KEYSIGHT</span><span>MATLAB</span><span>Pulse-Echo</span>
+                </div>
+            </div>
+            <div class="proj-body">
+                <div class="proj-context">
+                    <div class="proj-context-icon">🎯</div>
+                    <div><strong>Objectif</strong><br>Mettre en pratique le CND par ultrasons — profondeur minimale détectable, comparaison fiche technique constructeur, et influence du taux de réticulation sur la vitesse de propagation.</div>
+                </div>
+                <div class="proj-volets">
+                    <div class="proj-volet">
+                        <div class="proj-volet-head">
+                            <span class="proj-volet-badge" style="background:#ede9fe;color:#6d28d9;">Principes</span>
+                            <strong>Définition &amp; génération des ultrasons</strong>
+                        </div>
+                        <div class="proj-steps">
+                            <div class="proj-step"><div class="proj-step-dot" style="background:#7c3aed;"></div><div><strong>Caractéristiques</strong> — Fréquence &gt; 20 kHz, propagation par onde longitudinale ou transversale dans un milieu matériel.</div></div>
+                            <div class="proj-step"><div class="proj-step-dot" style="background:#7c3aed;"></div><div><strong>Effet piézoélectrique</strong> — Découvert par les frères Curie en 1880 : déformation mécanique ↔ charges électriques. Principe du transducteur.</div></div>
+                            <div class="proj-step"><div class="proj-step-dot" style="background:#7c3aed;"></div><div><strong>Modes de contrôle</strong> — Pulse-Echo (émetteur/récepteur unique) vs Transmission (séparés).</div></div>
+                        </div>
+                    </div>
+                    <div class="proj-volet">
+                        <div class="proj-volet-head">
+                            <span class="proj-volet-badge" style="background:#ede9fe;color:#6d28d9;">Expériences</span>
+                            <strong>Mesures et résultats expérimentaux</strong>
+                        </div>
+                        <div class="proj-steps">
+                            <div class="proj-step"><div class="proj-step-dot" style="background:#7c3aed;"></div><div><strong>Profondeur minimale</strong> — Em = V × ½t₁ avec V = 3 171 m/s → Em = 0,7 mm. Limite liée à la durée de l'impulsion.</div></div>
+                            <div class="proj-step"><div class="proj-step-dot" style="background:#7c3aed;"></div><div><strong>Comparaison fiche technique</strong> — Spectre mesuré (4,82–11,21 MHz) vs données constructeur. Cohérence validée par analyse FFT sous MATLAB.</div></div>
+                            <div class="proj-step"><div class="proj-step-dot" style="background:#7c3aed;"></div><div><strong>Vitesse vs réticulation</strong> — V1 = 4 022 m/s → V2 = 2 913 m/s → V3 = 2 568 m/s. Moins de réticulation = vitesse plus faible.</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="proj-results">
+                    <div class="proj-result-item"><div class="proj-result-icon">📡</div><div><strong>Détection interne et débouchante</strong><br><span>Avantage clé de l'UT vs ressuage : détecte les défauts internes sans accès en surface.</span></div></div>
+                    <div class="proj-result-item"><div class="proj-result-icon">⚠️</div><div><strong>Limites identifiées</strong><br><span>Zone morte en surface, difficulté sur faibles épaisseurs, inefficacité sur matériaux poreux.</span></div></div>
+                    <div class="proj-result-item"><div class="proj-result-icon">🔬</div><div><strong>Matériel utilisé</strong><br><span>Oscilloscope KEYSIGHT DSOX1102G 70 MHz + transducteur piézoélectrique.</span></div></div>
+                </div>
+                <div class="proj-pdf-placeholder">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Présentation PDF — à venir</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJET A2 -->
+        <div class="proj-detail" id="pa2">
+            <div class="proj-hero proj-hero-teal">
+                <div class="proj-hero-label">TP Matériaux · IUT Bordeaux · Affiche A0</div>
+                <h3 class="proj-hero-title">Étude des Matériaux</h3>
+                <div class="proj-hero-tags">
+                    <span>Microstructure</span><span>Microdureté Vickers</span><span>Densité</span><span>Résistivité</span><span>Brillance</span><span>Magnétisme</span>
+                </div>
+            </div>
+            <div class="proj-body">
+                <div class="proj-context">
+                    <div class="proj-context-icon">🔬</div>
+                    <div><strong>Objectif</strong><br>Caractérisation physique complète de 17 matériaux (métaux, céramiques, polymères, composites) via 6 techniques de mesure, synthétisée sous forme d'une affiche A0 collaborative.</div>
+                </div>
+                <div class="proj-muda-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
+                    <div class="proj-muda-item" style="background:#f0fdf4;border-color:#bbf7d0;"><span class="muda-icon">🔍</span><strong style="color:#065f46;">Microstructure</strong><p style="color:#166534;">Microscope optique Nikon LV150 — taille des défauts par rapport grossissement.</p></div>
+                    <div class="proj-muda-item" style="background:#ede9fe;border-color:#ddd6fe;"><span class="muda-icon">💎</span><strong style="color:#5b21b6;">Microdureté</strong><p style="color:#4c1d95;">Microduromètre MMT-X1 — HV = 189,1·10³×F/d². Gamme : 10 GU (PTFE) → 1081 GU.</p></div>
+                    <div class="proj-muda-item" style="background:#fff7ed;border-color:#fed7aa;"><span class="muda-icon">⚖️</span><strong style="color:#92400e;">Densité</strong><p style="color:#78350f;">Pycnomètre + pied à coulisse. Formules d = (m₂-m₁)/(m₂-m₃) et ρ = M·Z/(Nₐ·Vmaille).</p></div>
+                    <div class="proj-muda-item" style="background:#fef2f2;border-color:#fecaca;"><span class="muda-icon">⚡</span><strong style="color:#991b1b;">Résistivité</strong><p style="color:#7f1d1d;">Multimètre GDM-8341. Loi de Pouillet ρ = R·S/L. Gamme 10⁻⁸ Ω·m (Cu) → 10¹⁷ Ω·m (PTFE).</p></div>
+                    <div class="proj-muda-item" style="background:#f0f9ff;border-color:#bae6fd;"><span class="muda-icon">✨</span><strong style="color:#075985;">Brillance</strong><p style="color:#0c4a6e;">Brillancemètre PCE GM75. Ultra-mat 10 GU → Brillant métal (Zinc 563 GU).</p></div>
+                    <div class="proj-muda-item" style="background:#fdf4ff;border-color:#e9d5ff;"><span class="muda-icon">🧲</span><strong style="color:#6b21a8;">Magnétisme</strong><p style="color:#581c87;">Classement diamagnétique / paramagnétique / ferromagnétique des 17 matériaux.</p></div>
+                </div>
+                <div class="proj-volets">
+                    <div class="proj-volet">
+                        <div class="proj-volet-head">
+                            <span class="proj-volet-badge" style="background:#ccfbf1;color:#0f766e;">Matériaux</span>
+                            <strong>17 matériaux étudiés — 4 familles</strong>
+                        </div>
+                        <div class="proj-steps">
+                            <div class="proj-step"><div class="proj-step-dot" style="background:#0891b2;"></div><div><strong>Métaux &amp; alliages</strong> — Aluminium, Magnésium, Cuivre, Zinc, Acier doux, Acier dur, Laiton, Alliage Al 2017.</div></div>
+                            <div class="proj-step"><div class="proj-step-dot" style="background:#0891b2;"></div><div><strong>Céramiques</strong> — Silice, NaCl, Carbone graphite, Mullite.</div></div>
+                            <div class="proj-step"><div class="proj-step-dot" style="background:#0891b2;"></div><div><strong>Polymères &amp; Composites</strong> — PMMA, Résine époxy, PTFE, Carbone/résine époxy, Silice/PTFE.</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="proj-results">
+                    <div class="proj-result-item"><div class="proj-result-icon">👥</div><div><strong>Travail collaboratif</strong><br><span>Affiche A0 réalisée en équipe de 13 étudiants — coordination multi-postes.</span></div></div>
+                    <div class="proj-result-item"><div class="proj-result-icon">📊</div><div><strong>Synthèse complète</strong><br><span>6 techniques sur 17 matériaux — corrélations structure / propriétés.</span></div></div>
+                    <div class="proj-result-item"><div class="proj-result-icon">🏫</div><div><strong>IUT Bordeaux</strong><br><span>BUT Mesures Physiques — spécialité MCPC.</span></div></div>
+                </div>
+                <div class="proj-pdf-placeholder">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Affiche A0 PDF — à venir</span>
                 </div>
             </div>
         </div>
@@ -1558,7 +2441,7 @@
                 <div class="contact-clean-glow blue"></div>
                 <div class="contact-clean-icon"><i class="fas fa-envelope"></i></div>
                 <div class="contact-clean-label">Email</div>
-                <div class="contact-clean-value">evandufour13@icloud.com</div>
+                <div class="contact-clean-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c2a7b4a3aca6b7a4adb7b0f3f182aba1aeadb7a6eca1adaf">[email&#160;protected]</a></div>
                 <div class="contact-clean-action">Cliquer pour copier <i class="fas fa-copy"></i></div>
             </div>
 
@@ -1587,7 +2470,7 @@
 
 </div><!-- fin content -->
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     /* ===== NAVIGATION + TRANSITION ===== */
     function show(id, btn) {
         var panels = document.querySelectorAll('.panel');
@@ -1600,6 +2483,20 @@
         var target = document.getElementById(id);
         target.classList.add('show');
         btn.classList.add('active');
+
+        // Masquer le strip CND sur voyages et contact
+        var strip = document.getElementById('cndStrip');
+        if (strip) {
+            if (id === 'voyages' || id === 'contact') {
+                strip.style.opacity = '0';
+                clearTimeout(strip._showTimer);
+                strip._hideTimer = setTimeout(function() { strip.style.display = 'none'; }, 500);
+            } else {
+                clearTimeout(strip._hideTimer);
+                strip.style.display = 'flex';
+                requestAnimationFrame(function() { strip.style.opacity = '1'; });
+            }
+        }
 
         requestAnimationFrame(function() {
             requestAnimationFrame(function() {
@@ -1636,7 +2533,7 @@
         var arrow = document.getElementById('arr-' + id);
         var isOpen = detail.classList.contains('open');
 
-        ['p1','p2','p3'].forEach(function(pid) {
+        ['p1','p2','p3','p4','p5','p6','pa1','pa2'].forEach(function(pid) {
             document.getElementById(pid).classList.remove('open');
             document.getElementById('arr-' + pid).classList.remove('open');
         });
@@ -1683,7 +2580,31 @@
 
     window.addEventListener('DOMContentLoaded', function() {
         observeCards();
+        animateSkillBars();
     });
+
+    /* ===== SKILL BARS ANIMATION ===== */
+    function animateSkillBars() {
+        var bars = document.querySelectorAll('.skill-bar-fill');
+        bars.forEach(function(bar) {
+            var style = bar.getAttribute('style') || '';
+            var match = style.match(/width\s*:\s*([\d.]+%)/);
+            if (match) {
+                bar.style.setProperty('--bar-target', match[1]);
+                bar.style.width = '0%';
+            }
+        });
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var bar = entry.target;
+                    setTimeout(function() { bar.classList.add('animated'); }, 100);
+                    observer.unobserve(bar);
+                }
+            });
+        }, { threshold: 0.3 });
+        bars.forEach(function(b) { observer.observe(b); });
+    }
 
     /* ===== COPY TO CLIPBOARD ===== */
     function copyToClipboard(text, el) {
@@ -1701,6 +2622,24 @@
             showToast('✅ Copié dans le presse-papier !');
         });
     }
+
+
+    /* ===== CND SHOWCASE CYCLER ===== */
+    (function() {
+        var scenes = ['cndPT', 'cndUT', 'cndRT'];
+        var current = 0;
+
+        function nextScene() {
+            var prev = document.getElementById(scenes[current]);
+            if (prev) prev.classList.remove('active');
+            current = (current + 1) % scenes.length;
+            var next = document.getElementById(scenes[current]);
+            if (next) next.classList.add('active');
+        }
+
+        // Cycle every 5 seconds
+        setInterval(nextScene, 5000);
+    })();
 
     function showToast(msg) {
         var toast = document.getElementById('copyToast');
