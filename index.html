@@ -168,12 +168,19 @@
         /* ===== FADE IN UP (Intersection Observer) ===== */
         .card, .travel-card, .travel-summary {
             opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: translateY(20px);
+            transition: opacity 0.5s cubic-bezier(.22,1,.36,1), transform 0.5s cubic-bezier(.22,1,.36,1);
+            will-change: transform, opacity;
         }
         .card.revealed, .travel-card.revealed, .travel-summary.revealed {
             opacity: 1;
             transform: translateY(0);
+        }
+        @media (max-width: 640px) {
+            .card, .travel-card, .travel-summary {
+                transform: translateY(12px);
+                transition: opacity 0.4s cubic-bezier(.22,1,.36,1), transform 0.4s cubic-bezier(.22,1,.36,1);
+            }
         }
 
         .badge {
@@ -969,15 +976,15 @@
             .proj-section-sep { margin: 20px 0 14px; }
             .proj-section-sep-label { font-size: 0.62rem; }
 
-            /* CND strip — simplifié sur mobile */
-            .cnd-strip { height: 100px; }
-            .cnd-scene { padding: 0 10px; justify-content: center; }
+            /* CND strip — version mobile avec mini SVG animé */
+            .cnd-strip { height: 140px; }
+            .cnd-scene { padding: 0 14px; justify-content: center; gap: 14px; align-items: center; }
             .cnd-svg { display: none; }
-            .cnd-scene-center { align-items: center; }
-            .cnd-label { font-size: 0.6rem; }
-            .cnd-name { font-size: 0.85rem; }
-            .cnd-scene-center svg { display: none; }
-            .cnd-scene-center > div:last-child { font-size: 0.62rem; text-align: center; }
+            .cnd-mobile-anim { display: flex !important; }
+            .cnd-scene-center { align-items: center; flex: 1; }
+            .cnd-label { font-size: 0.62rem; }
+            .cnd-name { font-size: 0.9rem; }
+            .cnd-scene-center > div:last-child { font-size: 0.64rem; text-align: center; max-width: 200px; }
 
             /* Travel */
             .travel-header { padding: 20px 18px 16px; }
@@ -1035,9 +1042,17 @@
         /* Entrée du header */
         .header-inner img {
             animation: floatIn 1s cubic-bezier(.22,1,.36,1) both;
+            will-change: transform, opacity;
         }
         .header-text {
             animation: slideRight 0.9s cubic-bezier(.22,1,.36,1) 0.15s both;
+            will-change: transform, opacity;
+        }
+        /* On small mobile, simplify to just fade (slideRight can go off-screen) */
+        @media (max-width: 640px) {
+            .header-text {
+                animation: floatIn 0.9s cubic-bezier(.22,1,.36,1) 0.2s both;
+            }
         }
         @keyframes floatIn {
             from { opacity:0; transform: translateY(30px) scale(0.95); }
@@ -1056,10 +1071,20 @@
         /* Panel fade-in */
         .panel.visible {
             animation: panelReveal 0.45s cubic-bezier(.22,1,.36,1) both;
+            will-change: transform, opacity;
         }
         @keyframes panelReveal {
             from { opacity:0; transform: translateY(18px); }
             to   { opacity:1; transform: translateY(0); }
+        }
+        @media (max-width: 640px) {
+            .panel.visible {
+                animation: panelReveal 0.35s cubic-bezier(.22,1,.36,1) both;
+            }
+            @keyframes panelReveal {
+                from { opacity:0; transform: translateY(10px); }
+                to   { opacity:1; transform: translateY(0); }
+            }
         }
 
         /* Nav button active pulse */
@@ -1077,10 +1102,17 @@
             transition: transform 0.25s cubic-bezier(.22,1,.36,1),
                         box-shadow 0.25s ease,
                         opacity 0.5s ease;
+            will-change: transform, opacity;
         }
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 16px 40px rgba(0,0,0,0.09);
+        }
+        /* Touch devices — activate on tap */
+        @media (hover: none) {
+            .card:active { transform: scale(0.98); }
+            .contact-clean-card:active { transform: scale(0.97); }
+            .proj-overview-item:active { background: rgba(0,113,227,0.08) !important; }
         }
 
         /* Skill bar animated fill */
@@ -1137,10 +1169,14 @@
             width: 0;
             border-radius: 2px;
             background: linear-gradient(90deg, #0071e3, #34aadc);
-            transition: width 0.6s cubic-bezier(.22,1,.36,1);
+            transition: width 0.7s cubic-bezier(.22,1,.36,1) 0.2s;
         }
         .panel.visible .section-title::after {
-            width: 100%;
+            width: 60%;
+        }
+        @media (max-width: 640px) {
+            .section-title::after { height: 2px; }
+            .panel.visible .section-title::after { width: 80%; }
         }
 
         /* travel-card hover */
@@ -1185,6 +1221,8 @@
             opacity: 0;
             transition: opacity 0.9s ease;
         }
+        /* Mobile mini animations — hidden on desktop */
+        .cnd-mobile-anim { display: none; flex-shrink: 0; }
         .cnd-scene.active {
             opacity: 1;
         }
@@ -1472,6 +1510,30 @@
 
   <!-- SCENE 1 : RESSUAGE (PT) -->
   <div class="cnd-scene cnd-pt active" id="cndPT">
+    <!-- MOBILE MINI ANIM -->
+    <svg class="cnd-mobile-anim" width="80" height="120" viewBox="0 0 80 120">
+      <!-- piece -->
+      <rect x="8" y="40" width="64" height="60" rx="4" fill="#f3e8ff" stroke="#9333ea" stroke-width="1.5"/>
+      <!-- crack -->
+      <path d="M36 40 L34 55 L39 68 L35 80 L38 100" stroke="#64748b" stroke-width="1.5" fill="none"/>
+      <!-- drop animated -->
+      <g style="animation: ptDrop 3.5s ease-in-out infinite 0.3s">
+        <ellipse cx="37" cy="34" rx="4" ry="5" fill="#c026d3" opacity="0.9"/>
+        <path d="M37 39 L34 37 L40 37 Z" fill="#c026d3"/>
+      </g>
+      <!-- penetrant filling crack -->
+      <path d="M36 40 L34 55 L39 68 L35 80 L38 100"
+            stroke="#e879f9" stroke-width="3" fill="none"
+            stroke-dasharray="30" stroke-dashoffset="30"
+            style="animation: ptPenetrate 3.5s ease infinite"/>
+      <!-- glow reveal -->
+      <ellipse cx="37" cy="40" rx="8" ry="3.5" fill="#f0abfc" opacity="0"
+               style="animation: ptReveal 3.5s ease infinite; filter: blur(2px)"/>
+      <!-- UV lamp -->
+      <rect x="52" y="8" width="22" height="11" rx="3" fill="#7c3aed"/>
+      <text x="63" y="17" font-size="6" fill="white" text-anchor="middle">UV</text>
+      <line x1="58" y1="19" x2="45" y2="38" stroke="#a855f7" stroke-width="0.8" stroke-dasharray="2,2" opacity="0.7"/>
+    </svg>
     <!-- Left SVG: piece cross-section with penetrant -->
     <svg class="cnd-svg" width="180" height="120" viewBox="0 0 180 120">
       <!-- piece body -->
@@ -1550,6 +1612,34 @@
 
   <!-- SCENE 2 : ULTRASONS (UT) -->
   <div class="cnd-scene cnd-ut" id="cndUT">
+    <!-- MOBILE MINI ANIM -->
+    <svg class="cnd-mobile-anim" width="80" height="120" viewBox="0 0 80 120">
+      <!-- piece -->
+      <rect x="8" y="60" width="64" height="44" rx="4" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+      <!-- internal flaw -->
+      <ellipse cx="40" cy="80" rx="12" ry="5" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1" stroke-dasharray="2,1.5"/>
+      <!-- transducer -->
+      <g style="animation: utTransducer 3s ease-in-out infinite">
+        <rect x="26" y="28" width="28" height="18" rx="4" fill="#0369a1" stroke="#0284c7" stroke-width="1.2"/>
+        <rect x="30" y="35" width="20" height="5" rx="2" fill="#38bdf8"/>
+      </g>
+      <!-- coupling -->
+      <ellipse cx="40" cy="57" rx="14" ry="2.5" fill="#7dd3fc" opacity="0.5"/>
+      <!-- waves going down -->
+      <g transform-origin="40 60" style="animation: utPulse 1.6s ease-out infinite">
+        <path d="M22 62 Q40 57 58 62" stroke="#0ea5e9" stroke-width="1.8" fill="none"/>
+        <path d="M18 69 Q40 63 62 69" stroke="#38bdf8" stroke-width="1.3" fill="none" opacity="0.6"/>
+        <path d="M14 76 Q40 69 66 76" stroke="#7dd3fc" stroke-width="0.9" fill="none" opacity="0.4"/>
+      </g>
+      <!-- echo -->
+      <g transform-origin="40 80" style="animation: utEcho 1.6s ease-out infinite 0.5s">
+        <path d="M26 77 Q40 73 54 77" stroke="#f59e0b" stroke-width="2" fill="none"/>
+        <path d="M30 71 Q40 68 50 71" stroke="#fbbf24" stroke-width="1.2" fill="none" opacity="0.6"/>
+      </g>
+      <!-- mini oscilloscope screen -->
+      <rect x="4" y="4" width="72" height="20" rx="3" fill="#0c4a6e"/>
+      <path d="M8 14 L14 14 L14 8 L18 8 L18 14 L36 14 L36 10 L40 10 L40 14 L62 14 L62 8 L66 8 L66 14 L76 14" stroke="#38bdf8" stroke-width="1.2" fill="none"/>
+    </svg>
     <!-- Left SVG: transducer + waves -->
     <svg class="cnd-svg" width="180" height="120" viewBox="0 0 180 120">
       <!-- piece -->
@@ -1626,6 +1716,39 @@
 
   <!-- SCENE 3 : RADIOGRAPHIE (RT) -->
   <div class="cnd-scene cnd-rt" id="cndRT">
+    <!-- MOBILE MINI ANIM -->
+    <svg class="cnd-mobile-anim" width="80" height="120" viewBox="0 0 80 120">
+      <!-- source -->
+      <circle cx="40" cy="10" r="9" fill="#065f46" stroke="#059669" stroke-width="1.5"/>
+      <text x="40" y="14" font-size="7" fill="white" text-anchor="middle" font-weight="bold">X</text>
+      <!-- beam cone animated -->
+      <g style="animation: rtBeam 4s ease-in-out infinite">
+        <path d="M32 19 L12 68 L68 68 L48 19 Z" fill="url(#xrayGradM)" opacity="0.35"/>
+        <!-- scan line -->
+        <g style="animation: rtScan 2s linear infinite">
+          <line x1="40" y1="19" x2="40" y2="68" stroke="#6ee7b7" stroke-width="1.2" opacity="0.8"/>
+        </g>
+      </g>
+      <defs>
+        <linearGradient id="xrayGradM" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#10b981" stop-opacity="0.9"/>
+          <stop offset="100%" stop-color="#10b981" stop-opacity="0.05"/>
+        </linearGradient>
+      </defs>
+      <!-- piece -->
+      <rect x="10" y="68" width="60" height="26" rx="3" fill="#d1fae5" stroke="#059669" stroke-width="1.5"/>
+      <!-- defects -->
+      <ellipse cx="30" cy="81" rx="7" ry="4" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="1" stroke-dasharray="2,1"/>
+      <ellipse cx="54" cy="81" rx="5" ry="3" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="1" stroke-dasharray="2,1"/>
+      <!-- film -->
+      <rect x="6" y="97" width="68" height="7" rx="2" fill="#374151"/>
+      <!-- film result animated -->
+      <g style="animation: rtFilm 4s ease-in-out infinite 0.5s">
+        <rect x="10" y="106" width="60" height="12" rx="2" fill="#1f2937"/>
+        <ellipse cx="30" cy="112" rx="8" ry="4" fill="#111827"/>
+        <ellipse cx="54" cy="112" rx="5" ry="3" fill="#374151"/>
+      </g>
+    </svg>
     <!-- Left SVG: X-ray source + piece -->
     <svg class="cnd-svg" width="180" height="120" viewBox="0 0 180 120">
       <!-- X-ray source -->
@@ -2706,7 +2829,7 @@
                 <div class="contact-clean-glow blue"></div>
                 <div class="contact-clean-icon"><i class="fas fa-envelope"></i></div>
                 <div class="contact-clean-label">Email</div>
-                <div class="contact-clean-value">evandufour13@icloud.com</div>
+                <div class="contact-clean-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3f5a495e515b4a59504a4d0e0c7f565c53504a5b115c5052">[email&#160;protected]</a></div>
                 <div class="contact-clean-action">Cliquer pour copier <i class="fas fa-copy"></i></div>
             </div>
 
@@ -2735,7 +2858,7 @@
 
 </div><!-- fin content -->
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     /* ===== NAVIGATION + TRANSITION ===== */
     function show(id, btn) {
         var panels = document.querySelectorAll('.panel');
@@ -2824,14 +2947,22 @@
     var observer;
     function observeCards() {
         if (observer) observer.disconnect();
+        var isMobile = window.innerWidth <= 640;
         observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
+                    // Stagger delay based on card index for a cascade effect
+                    var siblings = entry.target.parentElement ? 
+                        Array.from(entry.target.parentElement.querySelectorAll('.card:not(.revealed), .travel-card:not(.revealed), .travel-summary:not(.revealed)')) : [];
+                    var idx = siblings.indexOf(entry.target);
+                    var delay = Math.min(idx * (isMobile ? 60 : 80), 400);
+                    setTimeout(function() {
+                        entry.target.classList.add('revealed');
+                    }, delay);
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.08 });
+        }, { threshold: isMobile ? 0.04 : 0.08, rootMargin: isMobile ? '0px 0px -20px 0px' : '0px' });
 
         var activePanel = document.querySelector('.panel.show');
         if (!activePanel) return;
@@ -2853,21 +2984,23 @@
         var bars = document.querySelectorAll('.skill-bar-fill');
         bars.forEach(function(bar) {
             var style = bar.getAttribute('style') || '';
-            var match = style.match(/width\s*:\s*([\d.]+%)/);
+            var match = style.match(/width[\s]*:[\s]*([\d.]+%)/);
             if (match) {
                 bar.style.setProperty('--bar-target', match[1]);
                 bar.style.width = '0%';
             }
         });
+        // Lower threshold for mobile (bars often partially visible)
+        var isMobile = window.innerWidth <= 640;
         var observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
                     var bar = entry.target;
-                    setTimeout(function() { bar.classList.add('animated'); }, 100);
+                    setTimeout(function() { bar.classList.add('animated'); }, 80);
                     observer.unobserve(bar);
                 }
             });
-        }, { threshold: 0.3 });
+        }, { threshold: isMobile ? 0.05 : 0.3 });
         bars.forEach(function(b) { observer.observe(b); });
     }
 
@@ -2949,9 +3082,8 @@
 </script>
 
 <!-- SCROLL TO TOP -->
+<button id
 <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Retour en haut">↑</button>
-
-<!-- DARK MODE TOGGLE -->
 <button id="darkToggle" onclick="toggleDark()" title="Mode sombre / clair">🌙</button>
 </body>
 </html>
