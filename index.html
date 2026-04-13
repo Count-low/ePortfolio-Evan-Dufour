@@ -3091,12 +3091,12 @@
         <div class="footer-section">
             <h5>Navigation</h5>
             <ul class="footer-links">
-                <li><a href="#" onclick="show('exp', document.querySelector('[onclick*=exp]')); return false;"><i class="fas fa-briefcase"></i> Expériences</a></li>
-                <li><a href="#" onclick="show('dip', document.querySelector('[onclick*=dip]')); return false;"><i class="fas fa-graduation-cap"></i> Diplômes</a></li>
-                <li><a href="#" onclick="show('pro', document.querySelector('[onclick*=pro]')); return false;"><i class="fas fa-rocket"></i> Projets</a></li>
-                <li><a href="#" onclick="show('comp', document.querySelector('[onclick*=comp]')); return false;"><i class="fas fa-tools"></i> Compétences</a></li>
-                <li><a href="#" onclick="show('voyages', document.querySelector('[onclick*=voyages]')); return false;"><i class="fas fa-globe"></i> Voyages</a></li>
-                <li><a href="#" onclick="show('contact', document.querySelector('[onclick*=contact]')); return false;"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="#" onclick="navTo('exp'); return false;"><i class="fas fa-briefcase"></i> Expériences</a></li>
+                <li><a href="#" onclick="navTo('dip'); return false;"><i class="fas fa-graduation-cap"></i> Diplômes</a></li>
+                <li><a href="#" onclick="navTo('pro'); return false;"><i class="fas fa-rocket"></i> Projets</a></li>
+                <li><a href="#" onclick="navTo('comp'); return false;"><i class="fas fa-tools"></i> Compétences</a></li>
+                <li><a href="#" onclick="navTo('voyages'); return false;"><i class="fas fa-globe"></i> Voyages</a></li>
+                <li><a href="#" onclick="navTo('contact'); return false;"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </div>
 
@@ -3342,6 +3342,12 @@
         toast.textContent = msg;
         toast.classList.add('show');
         setTimeout(function() { toast.classList.remove('show'); }, 2500);
+    }
+
+    /* ===== FOOTER NAV — évite les sélecteurs CSS dans les attributs HTML ===== */
+    function navTo(id) {
+        var btn = document.querySelector('nav button[onclick*="' + id + '"]');
+        if (btn) show(id, btn);
     }
 </script>
 
